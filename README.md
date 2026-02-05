@@ -41,7 +41,6 @@ The visualization tracks three key metrics across 100 optimization steps:
 - Real-time metric updates (50ms refresh)
 - Clean separation of concerns (MVC pattern)
 
-### Key Functions
 
 ## Theoretical Foundations
 
