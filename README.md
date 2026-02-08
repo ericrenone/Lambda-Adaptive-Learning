@@ -10,6 +10,8 @@ The system is built entirely from **immutable lambda-style state transitions**, 
 
 Convergence is evaluated using **information-theoretic drift (KL divergence)** alongside prediction error.
 
+## The simulation demonstrates that adaptive gain learning preserves convergence speed while significantly reducing stochastic variance, producing smooth, repeatable, and noise-robust trajectories.
+
 ---
 
 ## 🔍 Core Concept
