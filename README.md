@@ -41,6 +41,8 @@ A coupled system where:
 
 • Path A is the explorer, and Path B is the map-maker.
 
+• Path B represents true adaptive learning, robust across seeds and instances, while Path A demonstrates why naive gradient drift fails in noisy environments.
+
 • This creates a self-regulating learning process.
 
 • Information requires a carrier. Path A is the carrier (the signal), and Path B is the information (the meaning/stability extracted from that signal).
