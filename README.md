@@ -39,11 +39,11 @@ A coupled system where:
 
 ### Notes
 
-Path A is the explorer, and Path B is the map-maker.
+• Path A is the explorer, and Path B is the map-maker.
 
-This creates a self-regulating learning process.
+• This creates a self-regulating learning process.
 
-Information requires a carrier. Path A is the carrier (the signal), and Path B is the information (the meaning/stability extracted from that signal).
+• Information requires a carrier. Path A is the carrier (the signal), and Path B is the information (the meaning/stability extracted from that signal).
 
 ---
 
