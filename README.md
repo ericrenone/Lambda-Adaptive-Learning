@@ -1,52 +1,44 @@
-# Dual-Path Convergence: KL Drift vs Gain Control
+# Dual-Path Lambda Learning  
+### Functional Variational Convergence via KL Drift and Adaptive Gain Control
 
-Real-time visualization comparing two distinct optimization strategies that both minimize variational free energy through different mechanisms.
+This repository implements a **functional dynamical learning system** that compares two optimization pathways:
 
-## Overview
+1. **Pure drift minimization** via gradient descent  
+2. **Adaptive gain-controlled learning** via annealed sensitivity dynamics  
 
-This simulation demonstrates how gradient descent can achieve the same objective (minimizing KL divergence) through two fundamentally different paths:
+The system is expressed using **immutable lambda-style state transitions** and evaluated through **information-theoretic convergence metrics** (KL divergence) alongside classical loss.
 
-- **Purification Path**: Direct geometric correction toward the target
-- **Annealing Path**: Adaptive gain scaling that decays learning sensitivity
+---
 
-Both regimes minimize the same variational free-energy functional but employ different optimization dynamics.
+## 📌 Core Idea
 
+Learning is modeled as a **discrete-time dynamical system**:
 
-## What It Shows
+- State evolves through **pure functional transformations**
+- No imperative mutation in learning logic
+- Convergence measured against a known probabilistic ground truth
 
-The visualization tracks three key metrics across 100 optimization steps:
+Two paths operate in parallel:
 
-1. **Information Drift (KL Divergence)** - Distance from true distribution (no clipping)
-2. **Prediction Loss (MSE)** - Mean squared error on sampled data  
-3. **Sensitivity Parameter α** - Adaptive learning gain (annealing path only)
+### Path A — Representation Purification (Drift Minimization)
 
-## Architecture
+\[
+\theta_{t+1} = \theta_t - \eta \nabla F
+\]
 
-### Core Components
+### Path B — Sensitivity Annealing (Adaptive Gain Control)
 
-**`SimulationState`** - Manages dual-path optimization state
-- Generates Gaussian samples from true distribution N(μ=2.0, σ=1.0)
-- Computes variational free-energy gradients
-- Updates θ via two parallel gradient descent regimes
-- Tracks full KL divergence and prediction loss (no arbitrary clipping)
+\[
+\theta_{t+1} = \theta_t - \eta \alpha_t \nabla F
+\]
+\[
+\alpha_{t+1} = \alpha_t \cdot \lambda
+\]
 
-**`PlotCanvas`** - Modular plotting component
-- Encapsulates rendering logic for reusability
-- Auto-scaled axes with gridlines
-- Smooth anti-aliased line plots
-- Dynamic legends for multi-series data
+where:
 
-**`SimulationWindow`** - Main application controller
-- Coordinates UI layout and event handling
-- Real-time metric updates (50ms refresh)
-- Clean separation of concerns (MVC pattern)
+- \( \theta \) is the inferred mean  
+- \( \alpha \) is a self-regulating sensitivity parameter  
+- \( \lambda \) is a decay factor  
 
 
-## Theoretical Foundations
-
-Both optimization regimes minimize the variational free energy:
-
-- **Purification** reduces KL by direct geometric correction
-- **Annealing** achieves the same via sensitivity reduction
-
-This demonstrates that multiple optimization dynamics can converge to the same information-theoretic objective.
