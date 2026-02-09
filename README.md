@@ -1,4 +1,4 @@
-# Dual-Path Lambda Learning  
+# Dual-Path Adaptive Learning  
 ### Functional Adaptive Convergence via Drift Minimization and Gain Control
 
 This repository implements a **minimal functional learning system** that compares two fundamentally different optimization dynamics:
